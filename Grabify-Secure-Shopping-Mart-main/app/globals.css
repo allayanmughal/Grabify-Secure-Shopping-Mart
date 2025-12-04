@@ -1,0 +1,488 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   GRABIFY - SECURE SHOPPING MART
+   Light Theme with Bubble Animations
+   ============================================ */
+
+:root {
+  --accent-cyan: #0891b2;
+  --accent-purple: #7c3aed;
+  --accent-pink: #ec4899;
+  --accent-gold: #f59e0b;
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--text-primary);
+}
+
+/* Custom Scrollbar - Light Theme */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--accent-cyan), var(--accent-purple));
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--accent-purple), var(--accent-pink));
+}
+
+/* ============================================
+   BUBBLE ANIMATIONS
+   ============================================ */
+
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  animation: float-bubble linear infinite;
+  opacity: 0.6;
+}
+
+.bubble-1 {
+  width: 80px;
+  height: 80px;
+  left: 10%;
+  background: linear-gradient(135deg, rgba(8, 145, 178, 0.3), rgba(124, 58, 237, 0.3));
+  animation-duration: 20s;
+  animation-delay: 0s;
+}
+
+.bubble-2 {
+  width: 120px;
+  height: 120px;
+  left: 25%;
+  background: linear-gradient(135deg, rgba(236, 72, 153, 0.25), rgba(124, 58, 237, 0.25));
+  animation-duration: 25s;
+  animation-delay: 2s;
+}
+
+.bubble-3 {
+  width: 60px;
+  height: 60px;
+  left: 45%;
+  background: linear-gradient(135deg, rgba(8, 145, 178, 0.35), rgba(236, 72, 153, 0.35));
+  animation-duration: 18s;
+  animation-delay: 4s;
+}
+
+.bubble-4 {
+  width: 100px;
+  height: 100px;
+  left: 65%;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.3), rgba(8, 145, 178, 0.3));
+  animation-duration: 22s;
+  animation-delay: 1s;
+}
+
+.bubble-5 {
+  width: 70px;
+  height: 70px;
+  left: 80%;
+  background: linear-gradient(135deg, rgba(236, 72, 153, 0.3), rgba(245, 158, 11, 0.3));
+  animation-duration: 19s;
+  animation-delay: 3s;
+}
+
+.bubble-6 {
+  width: 90px;
+  height: 90px;
+  left: 5%;
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.25), rgba(8, 145, 178, 0.25));
+  animation-duration: 24s;
+  animation-delay: 5s;
+}
+
+.bubble-7 {
+  width: 50px;
+  height: 50px;
+  left: 55%;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.35), rgba(236, 72, 153, 0.35));
+  animation-duration: 16s;
+  animation-delay: 2.5s;
+}
+
+.bubble-8 {
+  width: 110px;
+  height: 110px;
+  left: 35%;
+  background: linear-gradient(135deg, rgba(8, 145, 178, 0.2), rgba(124, 58, 237, 0.2));
+  animation-duration: 28s;
+  animation-delay: 0.5s;
+}
+
+@keyframes float-bubble {
+  0% {
+    transform: translateY(100vh) rotate(0deg) scale(0.5);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg) scale(1);
+    opacity: 0;
+  }
+}
+
+/* ============================================
+   GLASSMORPHISM COMPONENTS - LIGHT THEME
+   ============================================ */
+
+@layer components {
+  /* Glass Card - Light */
+  .glass-card {
+    @apply relative overflow-hidden rounded-2xl;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.08),
+      0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+
+  .glass-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(8, 145, 178, 0.3), transparent);
+  }
+
+  /* Navbar Glass - NO overflow hidden for dropdown popouts */
+  .navbar-glass {
+    @apply relative rounded-2xl;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.08),
+      0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+
+  .navbar-glass::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(8, 145, 178, 0.3), transparent);
+    border-radius: inherit;
+  }
+
+  /* Glass Button - Light */
+  .glass-button {
+    @apply relative px-6 py-3 font-semibold transition-all duration-300 text-gray-700;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(8, 145, 178, 0.2);
+    box-shadow: 
+      0 4px 15px rgba(8, 145, 178, 0.1),
+      0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+
+  .glass-button:hover {
+    background: rgba(255, 255, 255, 1);
+    border-color: rgba(8, 145, 178, 0.4);
+    box-shadow: 
+      0 8px 25px rgba(8, 145, 178, 0.2),
+      0 2px 5px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+    color: var(--accent-cyan);
+  }
+
+  /* Glass Input - Light */
+  .glass-input {
+    @apply w-full px-4 py-3 rounded-xl transition-all duration-300 text-gray-800;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .glass-input:focus {
+    @apply outline-none;
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 0 3px rgba(8, 145, 178, 0.15);
+    background: white;
+  }
+
+  .glass-input::placeholder {
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+  /* Gradient Heading */
+  .cyber-heading {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple), var(--accent-pink));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Badge - Light */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold;
+    background: linear-gradient(135deg, rgba(8, 145, 178, 0.1), rgba(124, 58, 237, 0.1));
+    border: 1px solid rgba(8, 145, 178, 0.2);
+    color: var(--accent-cyan);
+  }
+
+  /* Price Tag */
+  .price-tag {
+    font-family: 'Montserrat', sans-serif;
+    @apply text-2xl font-bold;
+    background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes pulse-soft {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Floating Animation */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Pulse Soft Animation */
+.animate-pulse-soft {
+  animation: pulse-soft 4s ease-in-out infinite;
+}
+
+/* Gradient Animation */
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 5s ease infinite;
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Hover lift effect */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================
+   FORM STYLES
+   ============================================ */
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Focus ring */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-cyan-400/50 focus:ring-offset-2 focus:ring-offset-white;
+}
+
+/* ============================================
+   LOADING STATES
+   ============================================ */
+
+.skeleton {
+  @apply bg-gray-200 rounded animate-pulse;
+}
+
+.skeleton-text {
+  @apply h-4 bg-gray-200 rounded animate-pulse;
+}
+
+/* ============================================
+   CARD SHINE EFFECT
+   ============================================ */
+
+.shine-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine-effect::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transform: rotate(30deg);
+  transition: 0.6s;
+  opacity: 0;
+}
+
+.shine-effect:hover::after {
+  opacity: 1;
+  left: 100%;
+}
+
+/* ============================================
+   RESPONSIVE UTILITIES
+   ============================================ */
+
+@media (max-width: 768px) {
+  .glass-card {
+    backdrop-filter: blur(10px);
+  }
+  
+  .navbar-glass {
+    backdrop-filter: blur(15px);
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 375px) {
+  .navbar-glass {
+    padding: 8px;
+  }
+  
+  .glass-card {
+    border-radius: 1rem;
+  }
+}
+
+/* Dropdown popup shadow for better visibility */
+.shadow-2xl {
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.15),
+    0 12px 24px -8px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+/* Category color backgrounds - Tailwind safe fallbacks */
+.bg-cyan-100 { background-color: #cffafe; }
+.bg-cyan-200 { background-color: #a5f3fc; }
+.bg-purple-100 { background-color: #f3e8ff; }
+.bg-purple-200 { background-color: #e9d5ff; }
+.bg-amber-100 { background-color: #fef3c7; }
+.bg-amber-200 { background-color: #fde68a; }
+.bg-green-100 { background-color: #dcfce7; }
+.bg-green-200 { background-color: #bbf7d0; }
+.bg-pink-100 { background-color: #fce7f3; }
+.bg-pink-200 { background-color: #fbcfe8; }
+
+/* Text colors for categories */
+.text-cyan-600 { color: #0891b2; }
+.text-purple-600 { color: #7c3aed; }
+.text-amber-600 { color: #d97706; }
+.text-green-600 { color: #16a34a; }
+.text-pink-600 { color: #db2777; }
+
+/* ============================================
+   SELECT DROPDOWN STYLING
+   ============================================ */
+
+select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.5rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+}
+
+select option {
+  background: white;
+  color: #1f2937;
+}
