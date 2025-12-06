@@ -345,8 +345,8 @@ export async function GET(request: NextRequest) {
     
     // Sort by timestamp descending
     orders.sort((a, b) => {
-      const aTime = a.timestamp?.toMillis?.() || 0;
-      const bTime = b.timestamp?.toMillis?.() || 0;
+      const aTime = (a as any).timestamp?.toMillis?.() ?? 0;
+      const bTime = (b as any).timestamp?.toMillis?.() ?? 0;
       return bTime - aTime;
     });
     
